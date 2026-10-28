@@ -1,0 +1,60 @@
+{
+  "version": "1.0.0",
+  "categories": [
+    {
+      "id": "all",
+      "name_fa": "همه شبیه‌سازها",
+      "name_en": "All Simulators"
+    },
+    {
+      "id": "optics",
+      "name_fa": "اپتیک و فوتونیک",
+      "name_en": "Optics & Photonics"
+    },
+    {
+      "id": "mechanics",
+      "name_fa": "مکانیک کلاسیک",
+      "name_en": "Mechanics"
+    },
+    {
+      "id": "electromagnetism",
+      "name_fa": "الکتریسیته و مغناطیس",
+      "name_en": "Electromagnetism"
+    },
+    {
+      "id": "modern_physics",
+      "name_fa": "فیزیک نوین و کوانتوم",
+      "name_en": "Modern Physics"
+    }
+  ],
+  "simulators": [
+    {
+      "id": "spectrometer",
+      "title_fa": "اسپکترومتر اپتیکی و توری پراش",
+      "title_en": "Optical Spectrometer & Diffraction Grating",
+      "category": "optics",
+      "description_fa": "شبیه‌ساز گونیومتر آزمایشگاهی زاویه‌ای با ورنیه‌های دوطرفه، خطوط طیف نشری اتمی عناصر، توری پراش و محاسبه دقیق طول موج نور.",
+      "description_en": "High-precision goniometric spectrometer with dual vernier reading, atomic emission spectra, and diffraction grating analysis.",
+      "executable": "simulators/SpectroMeter_Simulator.exe",
+      "fallback_path": "D:/SpectroMeter Simulator/dist/SpectroMeter_Simulator.exe",
+      "icon": "assets/icons/spectrometer.png",
+      "author_fa": "امیرمحمد یوسف‌وند",
+      "version": "1.0.0",
+      "tags": ["طیف‌سنج", "اپتیک", "توری پراش", "ورنیه", "طیف نشری"]
+    },
+    {
+      "id": "young_double_slit",
+      "title_fa": "آزمایش دوشکاف یانگ",
+      "title_en": "Thomas Young Double-Slit Experiment",
+      "category": "optics",
+      "description_fa": "شبیه‌ساز تداخل و پراش دو شکاف، بررسی رفتار موجی نور، پروفایل شدت نور و شبیه‌سازی تک‌فوتون کوانتومی با ثبت تجمع آشکارساز.",
+      "description_en": "Wave optics interference and diffraction simulator, intensity profile plotting, and single-photon quantum buildup demonstration.",
+      "executable": "simulators/Young_Double_Slit_Simulator.exe",
+      "fallback_path": "D:/physics sims/dist/Young_Double_Slit_Simulator.exe",
+      "icon": "assets/icons/young_double_slit.png",
+      "author_fa": "امیرمحمد یوسف‌وند",
+      "version": "1.0.0",
+      "tags": ["اپتیک موجی", "یانگ", "تداخل", "کوانتوم", "پراش"]
+    }
+  ]
+}
