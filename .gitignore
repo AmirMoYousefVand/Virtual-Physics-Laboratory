@@ -16,3 +16,6 @@ simulators/*.exe
 .idea/
 *.tmp
 *.log
+
+# Generated PDF reports
+*.pdf
