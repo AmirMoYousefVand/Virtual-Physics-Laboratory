@@ -17,5 +17,6 @@ simulators/*.exe
 *.tmp
 *.log
 
-# Generated PDF reports
+# Generated PDF reports & local documents folder
 *.pdf
+Documents/
