@@ -43,7 +43,7 @@ class FilterBar(ctk.CTkFrame):
 
         # 1. Search Box
         search_frame = ctk.CTkFrame(self, fg_color="transparent")
-        search_frame.grid(row=0, column=0, padx=(24, 16), pady=12, sticky="w")
+        search_frame.grid(row=0, column=0, padx=(20, 10), pady=8, sticky="w")
 
         self.search_var = ctk.StringVar()
         self.search_var.trace_add("write", self._on_search_input)
@@ -52,10 +52,10 @@ class FilterBar(ctk.CTkFrame):
             search_frame,
             textvariable=self.search_var,
             placeholder_text=Localization.tr("search_placeholder"),
-            font=FontManager.get_persian_font(size=12),
-            width=320,
-            height=38,
-            corner_radius=10,
+            font=FontManager.get_persian_font(size=11),
+            width=260,
+            height=34,
+            corner_radius=8,
             fg_color=BG_INPUT,
             border_color=BORDER_COLOR,
             border_width=1,
@@ -65,7 +65,7 @@ class FilterBar(ctk.CTkFrame):
 
         # 2. Category Pills
         pills_frame = ctk.CTkFrame(self, fg_color="transparent")
-        pills_frame.grid(row=0, column=1, padx=8, pady=12, sticky="w")
+        pills_frame.grid(row=0, column=1, padx=4, pady=8, sticky="w")
 
         lang = Localization.get_language()
         for cat in self.categories:
@@ -76,31 +76,31 @@ class FilterBar(ctk.CTkFrame):
             btn = ctk.CTkButton(
                 pills_frame,
                 text=name,
-                font=FontManager.get_persian_font(size=12, weight="bold" if is_active else "normal"),
+                font=FontManager.get_persian_font(size=11, weight="bold" if is_active else "normal"),
                 fg_color=ACCENT_BLUE if is_active else "#1e293b",
                 hover_color="#0284c7" if is_active else "#334155",
                 border_width=0 if is_active else 1,
                 border_color=BORDER_COLOR,
                 text_color=TEXT_PRIMARY if is_active else TEXT_SECONDARY,
-                corner_radius=20,
-                height=32,
+                corner_radius=16,
+                height=28,
                 command=lambda c=cid: self._select_category(c)
             )
-            btn.pack(side="left", padx=4)
+            btn.pack(side="left", padx=3)
             self.category_buttons[cid] = btn
 
         # 3. Count indicator pill
         self.count_badge = ctk.CTkLabel(
             self,
             text=Localization.tr("total_simulators", count=0),
-            font=FontManager.get_persian_font(size=12, weight="bold"),
+            font=FontManager.get_persian_font(size=11, weight="bold"),
             text_color=ACCENT_CYAN,
             fg_color="#132338",
-            corner_radius=16,
-            height=32,
-            padx=14
+            corner_radius=14,
+            height=28,
+            padx=10
         )
-        self.count_badge.grid(row=0, column=2, padx=(8, 24), pady=12, sticky="e")
+        self.count_badge.grid(row=0, column=2, padx=(6, 20), pady=8, sticky="e")
 
         # Bottom Border
         sep = ctk.CTkFrame(self, fg_color=BORDER_COLOR, height=1, corner_radius=0)

@@ -44,16 +44,16 @@ class Header(ctk.CTkFrame):
 
         # Container for Branding (Title + Logo)
         brand_frame = ctk.CTkFrame(self, fg_color="transparent")
-        brand_frame.grid(row=0, column=0, padx=24, pady=16, sticky="w")
+        brand_frame.grid(row=0, column=0, padx=20, pady=8, sticky="w")
 
         # Load Logo
         logo_path = resource_path(os.path.join("assets", "branding", "icon.png"))
         if os.path.exists(logo_path):
             try:
-                pil_logo = Image.open(logo_path).resize((52, 52), Image.Resampling.LANCZOS)
-                self.logo_img = ctk.CTkImage(light_image=pil_logo, dark_image=pil_logo, size=(52, 52))
+                pil_logo = Image.open(logo_path).resize((40, 40), Image.Resampling.LANCZOS)
+                self.logo_img = ctk.CTkImage(light_image=pil_logo, dark_image=pil_logo, size=(40, 40))
                 logo_lbl = ctk.CTkLabel(brand_frame, image=self.logo_img, text="")
-                logo_lbl.pack(side="left", padx=(0, 16))
+                logo_lbl.pack(side="left", padx=(0, 12))
             except Exception:
                 pass
 
@@ -64,7 +64,7 @@ class Header(ctk.CTkFrame):
         self.title_lbl = ctk.CTkLabel(
             text_box,
             text=Localization.tr("app_title"),
-            font=FontManager.get_persian_font(size=18, weight="bold"),
+            font=FontManager.get_persian_font(size=16, weight="bold"),
             text_color=TEXT_PRIMARY,
             anchor="w"
         )
@@ -73,45 +73,45 @@ class Header(ctk.CTkFrame):
         self.subtitle_lbl = ctk.CTkLabel(
             text_box,
             text=Localization.tr("app_subtitle"),
-            font=FontManager.get_persian_font(size=12, weight="normal"),
+            font=FontManager.get_persian_font(size=11, weight="normal"),
             text_color=TEXT_SECONDARY,
             anchor="w"
         )
-        self.subtitle_lbl.pack(anchor="w", pady=(2, 0))
+        self.subtitle_lbl.pack(anchor="w", pady=(1, 0))
 
         # Controls Container (Right side)
         ctrl_frame = ctk.CTkFrame(self, fg_color="transparent")
-        ctrl_frame.grid(row=0, column=1, padx=24, pady=16, sticky="e")
+        ctrl_frame.grid(row=0, column=1, padx=20, pady=8, sticky="e")
 
         # Add Simulator Button
         self.btn_add = ctk.CTkButton(
             ctrl_frame,
             text=Localization.tr("btn_add_simulator"),
-            font=FontManager.get_persian_font(size=13, weight="bold"),
+            font=FontManager.get_persian_font(size=12, weight="bold"),
             fg_color=ACCENT_BLUE,
             hover_color=ACCENT_BLUE_HOVER,
-            corner_radius=10,
-            height=38,
+            corner_radius=8,
+            height=34,
             command=self.on_add_simulator
         )
-        self.btn_add.pack(side="left", padx=8)
+        self.btn_add.pack(side="left", padx=6)
 
         # About Dialog Button
         self.btn_about = ctk.CTkButton(
             ctrl_frame,
             text=Localization.tr("btn_about"),
-            font=FontManager.get_persian_font(size=13, weight="normal"),
+            font=FontManager.get_persian_font(size=12, weight="normal"),
             fg_color="#1e293b",
             hover_color="#334155",
             border_width=1,
             border_color=BORDER_COLOR,
             text_color=TEXT_PRIMARY,
-            corner_radius=10,
-            height=38,
-            width=100,
+            corner_radius=8,
+            height=34,
+            width=90,
             command=self.on_about
         )
-        self.btn_about.pack(side="left", padx=8)
+        self.btn_about.pack(side="left", padx=6)
 
         # Language Switcher with vector globe icon
         curr_lang = Localization.get_language().upper()
@@ -128,18 +128,18 @@ class Header(ctk.CTkFrame):
             ctrl_frame,
             image=self.globe_img,
             text=f" {curr_lang}",
-            font=FontManager.get_english_font(size=12, weight="bold"),
+            font=FontManager.get_english_font(size=11, weight="bold"),
             fg_color="#1e293b",
             hover_color="#334155",
             border_width=1,
             border_color=BORDER_COLOR,
             text_color=TEXT_PRIMARY,
-            corner_radius=10,
-            height=38,
-            width=85,
+            corner_radius=8,
+            height=34,
+            width=78,
             command=self.on_language_toggle
         )
-        self.btn_lang.pack(side="left", padx=8)
+        self.btn_lang.pack(side="left", padx=6)
 
         # Bottom Border Line
         sep = ctk.CTkFrame(self, fg_color=BORDER_COLOR, height=1, corner_radius=0)

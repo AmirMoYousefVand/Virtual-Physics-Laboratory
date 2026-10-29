@@ -54,11 +54,11 @@ class SimulatorCard(ctk.CTkFrame):
 
         # Inner padding frame
         self.inner = ctk.CTkFrame(self, fg_color="transparent")
-        self.inner.pack(fill="both", expand=True, padx=20, pady=18)
+        self.inner.pack(fill="both", expand=True, padx=16, pady=12)
 
         # 1. Top Bar: Category Pill (Left) & Status Badge (Right)
         top_bar = ctk.CTkFrame(self.inner, fg_color="transparent")
-        top_bar.pack(fill="x", pady=(0, 12))
+        top_bar.pack(fill="x", pady=(0, 8))
 
         cat_name = self.sim_data.get("category", "General")
 
@@ -108,10 +108,10 @@ class SimulatorCard(ctk.CTkFrame):
         self.icon_img = None
         if os.path.exists(self.icon_path):
             try:
-                pil_icon = Image.open(self.icon_path).resize((64, 64), Image.Resampling.LANCZOS)
-                self.icon_img = ctk.CTkImage(light_image=pil_icon, dark_image=pil_icon, size=(64, 64))
+                pil_icon = Image.open(self.icon_path).resize((48, 48), Image.Resampling.LANCZOS)
+                self.icon_img = ctk.CTkImage(light_image=pil_icon, dark_image=pil_icon, size=(48, 48))
                 icon_lbl = ctk.CTkLabel(content_frame, image=self.icon_img, text="")
-                icon_lbl.pack(side="left", padx=(0, 14))
+                icon_lbl.pack(side="left", padx=(0, 12))
             except Exception:
                 pass
 
@@ -123,7 +123,7 @@ class SimulatorCard(ctk.CTkFrame):
         self.title_lbl = ctk.CTkLabel(
             title_box,
             text=title_fa if lang == "fa" else self.sim_data.get("title_en", title_fa),
-            font=FontManager.get_persian_font(size=15, weight="bold"),
+            font=FontManager.get_persian_font(size=14, weight="bold"),
             text_color=TEXT_PRIMARY,
             anchor="w",
             justify="left"
@@ -135,11 +135,11 @@ class SimulatorCard(ctk.CTkFrame):
             self.sub_lbl = ctk.CTkLabel(
                 title_box,
                 text=title_en if lang == "fa" else title_fa,
-                font=FontManager.get_english_font(size=11, weight="normal"),
+                font=FontManager.get_english_font(size=10, weight="normal"),
                 text_color=TEXT_SECONDARY,
                 anchor="w"
             )
-            self.sub_lbl.pack(anchor="w", pady=(2, 0))
+            self.sub_lbl.pack(anchor="w", pady=(1, 0))
 
         # 3. Description (Wrapped)
         desc_fa = self.sim_data.get("description_fa", "")
@@ -147,31 +147,31 @@ class SimulatorCard(ctk.CTkFrame):
         self.desc_lbl = ctk.CTkLabel(
             self.inner,
             text=desc_fa if lang == "fa" else desc_en,
-            font=FontManager.get_persian_font(size=11),
+            font=FontManager.get_persian_font(size=10),
             text_color=TEXT_SECONDARY,
-            wraplength=480,
+            wraplength=400,
             justify="left",
             anchor="w"
         )
-        self.desc_lbl.pack(fill="x", pady=(4, 12))
+        self.desc_lbl.pack(fill="x", pady=(2, 8))
 
         # 4. Tags
         tags = self.sim_data.get("tags", [])
         if tags:
             tags_frame = ctk.CTkFrame(self.inner, fg_color="transparent")
-            tags_frame.pack(fill="x", pady=(0, 14))
-            for t in tags[:5]:
+            tags_frame.pack(fill="x", pady=(0, 10))
+            for t in tags[:3]:
                 t_lbl = ctk.CTkLabel(
                     tags_frame,
                     text=f"#{t}",
-                    font=FontManager.get_persian_font(size=10),
+                    font=FontManager.get_persian_font(size=9),
                     text_color=TEXT_MUTED,
                     fg_color="#1e293b",
-                    corner_radius=8,
-                    height=22,
-                    padx=8
+                    corner_radius=6,
+                    height=20,
+                    padx=6
                 )
-                t_lbl.pack(side="left", padx=3)
+                t_lbl.pack(side="left", padx=2)
 
         # 5. Footer Line & Action Button
         footer = ctk.CTkFrame(self.inner, fg_color="transparent")
@@ -183,7 +183,7 @@ class SimulatorCard(ctk.CTkFrame):
         self.info_lbl = ctk.CTkLabel(
             footer,
             text=f"{author} | v{ver}",
-            font=FontManager.get_persian_font(size=10),
+            font=FontManager.get_persian_font(size=9),
             text_color=TEXT_MUTED
         )
         self.info_lbl.pack(side="left")
@@ -192,12 +192,12 @@ class SimulatorCard(ctk.CTkFrame):
         self.btn_launch = ctk.CTkButton(
             footer,
             text=self._get_launch_btn_text(),
-            font=FontManager.get_persian_font(size=13, weight="bold"),
+            font=FontManager.get_persian_font(size=12, weight="bold"),
             fg_color=self._get_launch_btn_color(),
             hover_color=ACCENT_BLUE_HOVER,
-            corner_radius=10,
-            height=38,
-            width=170,
+            corner_radius=8,
+            height=34,
+            width=150,
             command=self._on_click_launch
         )
         self.btn_launch.pack(side="right")

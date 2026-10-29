@@ -8,6 +8,11 @@ def setup_windows_appid(app_id: str = "CFU.VirtualLaboratory.Launcher.1.0"):
             ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(app_id)
         except Exception:
             pass
+        try:
+            # PROCESS_PER_MONITOR_DPI_AWARE = 2 or SYSTEM_DPI_AWARE = 1
+            ctypes.windll.shcore.SetProcessDpiAwareness(1)
+        except Exception:
+            pass
 
 def force_foreground_window(hwnd: int) -> bool:
     """

@@ -58,9 +58,12 @@ class MainWindow(ctk.CTk):
         self.update_idletasks()
         sw = self.winfo_screenwidth()
         sh = self.winfo_screenheight()
-        x = max(0, (sw - WINDOW_DEFAULT_WIDTH) // 2)
-        y = max(0, (sh - WINDOW_DEFAULT_HEIGHT) // 2)
-        self.geometry(f"{WINDOW_DEFAULT_WIDTH}x{WINDOW_DEFAULT_HEIGHT}+{x}+{y}")
+        usable_h = max(WINDOW_MIN_HEIGHT, sh - 80)
+        w = max(WINDOW_MIN_WIDTH, min(WINDOW_DEFAULT_WIDTH, sw - 40))
+        h = max(WINDOW_MIN_HEIGHT, min(WINDOW_DEFAULT_HEIGHT, usable_h))
+        x = max(0, (sw - w) // 2)
+        y = max(0, (sh - 80 - h) // 2)
+        self.geometry(f"{w}x{h}+{x}+{y}")
 
     def _build_ui(self):
         # 1. Header

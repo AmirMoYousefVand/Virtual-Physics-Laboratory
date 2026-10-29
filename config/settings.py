@@ -8,11 +8,11 @@ APP_NAME_EN = "Virtual Physics Laboratory"
 APP_SUBTITLE_EN = "Interactive Physics Simulation Suite"
 APP_VERSION = "1.0.0"
 
-# Window Settings
-WINDOW_DEFAULT_WIDTH = 1240
-WINDOW_DEFAULT_HEIGHT = 820
-WINDOW_MIN_WIDTH = 1050
-WINDOW_MIN_HEIGHT = 700
+# Window Settings (Optimized for 1280x720, 1366x768 & low-res displays)
+WINDOW_DEFAULT_WIDTH = 1160
+WINDOW_DEFAULT_HEIGHT = 650
+WINDOW_MIN_WIDTH = 900
+WINDOW_MIN_HEIGHT = 560
 
 # Theme Settings
 APPEARANCE_MODE = "Dark"  # "Dark" or "Light"
