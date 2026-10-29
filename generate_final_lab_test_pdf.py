@@ -308,7 +308,7 @@ li {{
             <tr>
                 <td>کالیبراسیون و تراز</td>
                 <td>گونیومتر دقیق و پیچ‌های تراز شوستر</td>
-                <td>دقت زاویه‌ای ۱ دقیقه قوسی ($1'$)</td>
+                <td>دقت زاویه‌ای ۱ دقیقه قوسی (<span class="math-formula">1'</span>)</td>
                 <td><span class="badge badge-success">پذیرفته شد (Pass)</span></td>
             </tr>
             <tr>
@@ -381,7 +381,7 @@ li {{
             <tr>
                 <td>پراش مرتبه اول جیوه (Hg)</td>
                 <td>خط سبز ۵۴۶٫۰۷ نانومتر در توری ۶۰۰</td>
-                <td>$\theta = 19.124^\circ$</td>
+                <td>زاویه &theta; = 19.124°</td>
                 <td><span class="badge badge-success">انحراف ۰٫۰۰۰°</span></td>
             </tr>
             <tr>
